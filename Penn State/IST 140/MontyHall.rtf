@@ -1,0 +1,35 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 package montyhall;\
+import java.util.Scanner;\
+public class MontyHall \{\
+    public static void main(String[] args) \{\
+        Scanner scnr = new Scanner(System.in);\
+        int door1 = 0;\
+        int door2 = 0;\
+        int x = 0;\
+        \
+        while (x < 1000) \{\
+            int randInt = (int) (Math.random() * 233);\
+            int door = randInt % 3;\
+            if (door == 1) \{\
+                door1 = door1 + 1; \}\
+            if (door == 2) \{\
+                door2 = door2 + 1; \}\
+            x = x + 1;\
+        \}\
+        System.out.print("Option 1 had ");\
+        System.out.print(door1);\
+        System.out.print(" wins and option 2 had ");\
+        System.out.print(door2);\
+        System.out.println(" wins.");\
+            \
+    \}\
+\
+\}\
+}
