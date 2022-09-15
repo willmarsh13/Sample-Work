@@ -1,0 +1,58 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 package taxcalculator;\
+import java.util.Scanner;\
+public class TaxCalculator \{\
+    public static void main(String[] args) \{\
+    Scanner scnr = new Scanner(System.in);\
+    \
+    String maritalStatus;\
+    double sCutOff1 = 0;\
+    double sCutOff2 = 8000;\
+    double sCutOff3 = 32000;\
+    \
+    int mCutOff1 = 0;\
+    int mCutOff2 = 1600;\
+    int mCutOff3 = 64000;\
+    \
+    double income;\
+    double taxRates;\
+    \
+    System.out.print("Enter your Marital Status:  ");\
+    maritalStatus = scnr.next();\
+    \
+    System.out.print("Enter your Taxible Household Income:  ");\
+    income = scnr.nextDouble();\
+    \
+    System.out.println();\
+    System.out.print("You owe ");\
+    System.out.print("$");\
+    \
+    switch (maritalStatus) \{\
+        case "married":\
+            if (0 < income && income < 1600) \{\
+                System.out.printf("%.2f", income * 0.10);\
+            \} else if ( 1600 <= income && income < 64000) \{\
+                System.out.printf("%.2f", (income * 0.15) + 1600);\
+            \} else if (64000 <= income)\
+                System.out.printf("%.2f", (income * 0.20) + 8800);\
+            break;\
+        case "single":\
+            if (0 < income && income < 8000) \{\
+                System.out.printf("%.2f", income * 0.10);\
+            \} else if (8000 <= income && income < 32000) \{\
+                System.out.printf("%.2f", (income * 0.15) + 800);\
+            \} else if (32000 <= income) \{\
+                System.out.printf("%.2f", (income * 0.25) + 4400);\
+            \}\
+    \}\
+    System.out.print(" in taxes.");\
+    System.out.println();\
+    System.out.println();\
+    \}\
+    \}}
