@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 package patternmaker;\
+import java.util.Scanner;\
+public class PatternMaker \{\
+    public static void main(String[] args) \{\
+        Scanner scnr = new Scanner(System.in);\
+        System.out.print("Enter an integer between 1 and 10 (inclusive) for the number of rows to be printed:  ");\
+        int numRows = scnr.nextInt();\
+        System.out.println();\
+        \
+        System.out.print("Enter a second integer between 1 and 10 (inclusive) for the number of columns to be printed:  ");\
+        int numColumns = scnr.nextInt();\
+        System.out.println();\
+        \
+        System.out.print("Enter a string value for the starting string of the pattern:  ");\
+        String firstChar = scnr.next();\
+        firstChar = firstChar + firstChar;\
+        System.out.println();\
+        \
+        System.out.print("Enter a string value for the second string of the pattern:  ");\
+        String secondChar = scnr.next();\
+        secondChar = secondChar + secondChar;\
+        System.out.println();\
+        \
+        System.out.print("Enter a string value to separate the first two strings:  ");\
+        String sepChar = scnr.next();\
+        sepChar = sepChar + sepChar + sepChar;\
+        System.out.println();\
+       \
+        \
+        if (numColumns % 2 == 0) \{  // if columns is even\
+        for (int i = 1; i <= numRows; i++) \{\
+           for (int k = 0; k < numColumns/ 2; k++) \{\
+               if ( i % 2 == 1) \{ // for odds\
+                     if(k > 0) \{\
+                        System.out.print(sepChar + firstChar + sepChar + secondChar);\
+                        \}\
+                    else \
+                        System.out.print(firstChar + sepChar + secondChar + sepChar + firstChar);\
+                \} \
+               else \{ // for evens\
+                     if(k > 0) \{\
+                        System.out.print(sepChar + secondChar + sepChar + firstChar);\
+                        \}\
+                    else \
+                        System.out.print(secondChar + sepChar + firstChar + sepChar + secondChar);\
+                \} \
+        \}\
+           System.out.println();                         \
+       \} \
+\
+   \}\
+\
+        else \{  // if columns is odd\
+        for (int i = 1; i <= numRows; i++) \{\
+            for (int k = 0; k < (numColumns/ 2); k++) \{\
+                if ( i % 2 == 1) \{ // for odds\
+                    if(k > 0) \{\
+                        System.out.print(sepChar + firstChar + sepChar + secondChar);\
+                        \}\
+                else \
+                    System.out.print(firstChar + sepChar + secondChar + sepChar + firstChar);\
+                \}\
+                else \{   // for evens\
+                    if(k > 0) \{\
+                        System.out.print(sepChar + secondChar + sepChar + firstChar);\
+                        \}\
+                    else \
+                        System.out.print(secondChar + sepChar + firstChar + sepChar + secondChar);                        \
+                \}\
+            \}\
+           System.out.println();                         \
+        \}\
+        \}\
+        \
+        System.out.println();\
+    \}\
+    \
+\}\
+}
