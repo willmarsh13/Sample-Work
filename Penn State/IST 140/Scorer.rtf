@@ -1,0 +1,60 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 package scorer;\
+public class Scorer \{\
+    public static void main(String[] args) \{\
+        //prompt user for 2-dimensional array\
+        double[][] scores = promptUser();\
+        //store the values as strings and print them out\
+        TwoDArray(scores);\
+        //find the averages and print them out\
+        averages(scores);\
+    \}\
+    public static double[][] promptUser() \{\
+        int n = 3;\
+        double scores[][] = new double[n][n];\
+        java.util.Scanner in = new java.util.Scanner(System.in);\
+        //nested while loop for prompting the user for a 2-dimensional array\
+        int i = 0; //int i is row\
+        while (i < n) \{ //n = number of columns and rows you want total\
+            int j = 0; //int j is column\
+            while (j < n) \{ //nested while loop\
+                System.out.print("Enter row "+ (i) +" column "+(j)+" value: "); //prompts the user for a double\
+                scores[i][j] = in.nextDouble(); //collects the user's double\
+                System.out.println(); //formatting\
+                j++; //moves on to nest column\
+            \}\
+            i++; //moves on to next row after each column\
+        \}\
+        return scores; //returns the double array, scores\
+    \}\
+    public static String TwoDArray (double scores[][]) \{\
+        System.out.println("Two Dimensional Input : "); //formatting\
+        String array = ""; //sets up the array string\
+        int n = 3; //number of columns and rows you want total\
+        for(int i = 0; i<n; i++)\{ //for loop to print out array\
+            for(int j=0; j<n; j++)\{ //nested for loop to print out array\
+                array = array + scores[i][j] +" "; //prints out array\
+            \}\
+            array = array + "\\n"; //formatting\
+        \}\
+        System.out.println(array); //formatting\
+        return array; //returns the array\
+    \}\
+    public static void averages (double scores[][]) \{\
+        int n = 3; //number of rows and columns you want total\
+        for(int i=0; i<n; i++)\{ //for loop to print out averages\
+            double sum = 0.0; //resets sum value\
+            for(int j=0; j<n; j++)\{ //nested for loop to print out averages\
+                sum = sum + scores[i][j]; //calculates sum value for each row and column\
+            \}\
+            System.out.printf("The "+i+" Row Average is : %.2f \\n",((double)sum/(double)n)); //prints out row and column using printf formatting\
+        \}\
+    \}\
+\}\
+}
